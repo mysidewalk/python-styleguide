@@ -84,7 +84,7 @@ foo = long_function_name(
 )
 ```
 
-Code that is deeply indented (more than 12-16 spaces) is difficult 
+Code that is deeply indented (more than 12-16 spaces) is difficult to read, forces skinnier lines, incentivizes naming shortcuts and abbreviations, and likely indicates too much complexity being packed into too small a space (a complex orchestration of primitives, too large and cyclomatically complex a method, etc.).
 
 ### Blank lines
 
