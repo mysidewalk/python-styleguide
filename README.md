@@ -27,7 +27,7 @@ Layout is critical to a code reader's comprehension and speed. As annotation/"bl
 In keeping with PEP8, python files should be headed by documentation, followed by import statements, any relevant __all__ declaration, and followed by the declarations that will make up the module itself. As a general concept, modules should be written with an assumption that they will be read from top to bottom. This means that symbols referenced in later sections of the file should have been defined previously.
 
 ```python
-# WRONG
+# BAD
 def use_a_global_defined_later():
     print some_global
 
@@ -40,10 +40,8 @@ class Foo(object):
         print self._a_foo_says
    
     _a_foo_says = 'What?'
-```
 
-```python
-# RIGHT
+# GOOD
 some_global = 'Hello, world!'
 
 def use_a_global_defined_later():
@@ -66,17 +64,23 @@ Contrary to PEP8, lines can be up to 120 characters. Modern software engineering
 Contrary to PEP8, even hanging indents in a multiline statement should be indented to 4 space breaks.
 
 ```python
-# WRONG
+# BAD
 foo = long_function_name(
   var_one, var_two,
   var_three, var_four)
-```
 
-```python
-# RIGHT
+# BETTER
 foo = long_function_name(
     var_one, var_two,
     var_three, var_four,
+)
+
+# BEST
+foo = long_function_name(
+    var_one,
+    var_two,
+    var_three,
+    var_four,
 )
 ```
 
