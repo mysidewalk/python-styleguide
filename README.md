@@ -153,14 +153,20 @@ class ATaleOfTwoFunctions(object):
                 print 'charcuterie.'
     
     # BETTER
+    def process_tripe(self, triple):
+        while 1:
+            sleep(triple)
+            break
+    
+    def process_double(self, double):
+        for inner_item in range(double):
+            print inner_item
+    
     def process_item(self, item):
         if item % 2:
-            for inner_item in range(item):
-                print item
+            self.process_double(item)
         elif item % 3:
-            while 1:
-                sleep(1)
-                break
+            self.process_triple(item)
         else:
             print 'charcuterie.'
     
