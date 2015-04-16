@@ -43,7 +43,7 @@ class Foo(object):
 ```
 
 ```python
-# Right
+# RIGHT
 some_global = 'Hello, world!'
 
 def use_a_global_defined_later():
@@ -65,14 +65,14 @@ Contrary to PEP8, lines can be up to 120 characters. Modern software engineering
 
 Contrary to PEP8, even hanging indents in a multiline statement should be indented to 4 space breaks.
 
-```
+```python
 # WRONG
 foo = long_function_name(
   var_one, var_two,
   var_three, var_four)
 ```
 
-```
+```python
 # RIGHT
 foo = long_function_name(
     var_one, var_two,
