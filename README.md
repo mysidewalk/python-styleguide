@@ -1,1 +1,1 @@
-# python-styleguide 
+# mySidewalk Python Style Guide
