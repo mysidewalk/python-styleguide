@@ -55,6 +55,13 @@ class Foo(object):
         print self._a_foo_says
 ```
 
+"Shebang" lines are unnecessary and can even cause issues in practice (when there are multiple python interpreters or versions, say, cpython and pypy, on one server, it is important to be explicit with which interpreter is launching the script). Do not include a "shebang".
+
+```python
+#! /usr/bin/env python
+# BAD
+```
+
 ### Line Length
 
 Contrary to PEP8, lines can be up to 120 characters. Modern software engineering equipment and tools support substantially wider views than 79 characters, however, readability is still enhanced by making code fairly narrow and lines that are made long thanks to many parameter function calls or, multiple function calls, or the instantiation of primitives with many members (i.e. a long list) should be broken up even before they reach the 120 character limit. See multi-line statements for more information.
