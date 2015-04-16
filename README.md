@@ -91,7 +91,83 @@ foo = long_function_name(
 )
 ```
 
-Code that is deeply indented (more than 12-16 spaces) is difficult to read, forces skinnier lines, incentivizes naming shortcuts and abbreviations, and likely indicates too much complexity being packed into too small a space (a complex orchestration of primitives, too large and cyclomatically complex a method, etc.).
+Code that is deeply indented (more than 12-16 spaces) is difficult to read, forces skinnier lines, incentivizes naming shortcuts and abbreviations, and likely indicates too much complexity being packed into too small a space (a complex orchestration of primitives, too large and cyclomatically complex a method, etc.). A number of methods can be used to outdent code suffering from this readability issue.
+
+```python
+# BAD
+some_complicated_structure = {
+    'some inner complicated structure': {
+        'why not another inner complicated structure': {
+            'getting past the indent equator, here; toilets flush in a reversed direction': {
+                "let's throw another shrimp on the barbie!": {
+                    'maybe a dingo ate your baby': {
+                        'marsupials': [
+                            'kangaroo',
+                            'wallabie',
+                            'possum',
+                            'wombat',
+                            'tasmanian devil',
+                        ],
+                    },
+                },
+            },
+        },
+    },
+}
+
+# BETTER
+dingo_nonsense = {
+    'maybe a dingo ate your baby': {
+        'marsupials': [
+            'kangaroo',
+            'wallabie',
+            'possum',
+            'wombat',
+            'tasmanian devil',
+        ],
+    },
+}
+another_inner_structure = {
+    'why not another inner complicated structure': {
+        'getting past the indent equator, here; toilets flush in a reversed direction': {
+            "let's throw another shrimp on the barbie!": dingo_nonsense,
+        },
+    },
+}
+some_complicated_structure = {
+    'some inner complicated structure': another_inner_structure,
+}
+
+class ATaleOfTwoFunctions(object):
+    # BAD
+    def worst_of_lines(self):
+        for item in range(100):
+            if item % 2:
+                for inner_item in range(item):
+                    print item
+            elif item % 3:
+                while 1:
+                    sleep(1)
+                    break
+            else:
+                print 'charcuterie.'
+    
+    # BETTER
+    def process_item(self, item):
+        if item % 2:
+            for inner_item in range(item):
+                print item
+        elif item % 3:
+            while 1:
+                sleep(1)
+                break
+        else:
+            print 'charcuterie.'
+    
+    def best_of_lines(self):
+        for item in range(100):
+            self.process_item(item)
+```
 
 ### Blank lines
 
@@ -108,3 +184,7 @@ Code that is deeply indented (more than 12-16 spaces) is difficult to read, forc
 ### Docstrings
 
 ## Naming
+
+## Functions
+
+## Classes
