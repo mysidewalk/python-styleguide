@@ -191,6 +191,21 @@ class ATaleOfTwoFunctions(object):
 
 ## Naming
 
+Names should follow PEP8 conventions for all python entities.  All names should clearly describe the entity in question (classes and references) or the action being performed (function and method names). Precision and readability are be favored over brevity. Names should not include abbreviations that make them less understandable (e.g. addr_cnty_name), although abbreviations in common use are acceptable (e.g. weight_in_kg). If an entity fits a named pattern or has a specific purpose, that should be conveyed in the name (e.g. GoogleMap < GoogleMapAdapter and hadoop < hadoop_reader)
+
+Specific descriptions should be favored over more general ones. Choose names like "composite", "parser", "driver", "factory" or "adapter" over "handler", "processor", "helper" or "utils". If a reference, class, module or package can't be renamed to be more specific, it's an indication that it should be decomposed into more cohesive entities.  
+
+More examples:
+
+* o < org < organization
+* convert() < serialize() < serialize_to_json()
+* validate() < vaidated() < is_valid()   (where all return boolean)
+* HamburgerHelper < HamburgerCondimentFactory
+* ftp_file_handler < ftp_file_driver
+* hadoop < hadoop_processor < hadoop_reader < hadoop_stream_reader
+* ArgCtxProcessor < ArgumentContextProcessor < ArgumentContextParser + ArgumentContext + ArgumentContextSerializer
+* utils.py < transforms.py + validators.py + ... 
+
 ## Functions
 
 ## Classes
