@@ -177,6 +177,45 @@ class ATaleOfTwoFunctions(object):
 
 ### Blank lines
 
+Contrary to PEP8 which states, `Use blank lines in functions, sparingly, to indicate logical sections.`, comments are preferred. The reasoning being that any logical grouping within a function that might benefit from a blank line will benefit even more from the addition of a comment to describe the logical section. A further improvement would be to factor out the logical section as its own method. The end result is that methods are much easier to identify and group as they form a solid block of code.
+
+```python
+# BAD
+def _not_authenticated(self):
+    self._authenticator = None
+    tracking_session = TrackingSessionHandler(self)
+    self._user = tracking_session.user
+
+    if api_settings.UNAUTHENTICATED_TOKEN:
+        self._auth = api_settings.UNAUTHENTICATED_TOKEN()
+    else:
+        self._auth = None
+        
+ # BETTER
+ def _not_authenticated(self):
+    self._authenticator = None
+    tracking_session = TrackingSessionHandler(self)
+    self._user = tracking_session.user
+    # Handle based on api_settings
+    if api_settings.UNAUTHENTICATED_TOKEN:
+        self._auth = api_settings.UNAUTHENTICATED_TOKEN()
+    else:
+        self._auth = None
+
+# BEST
+def _handle_unauthenticated_setting(self):
+    if api_settings.UNAUTHENTICATED_TOKEN:
+        self._auth = api_settings.UNAUTHENTICATED_TOKEN()
+    else:
+        self._auth = None
+
+def _not_authenticated(self):
+    self._authenticator = None
+    tracking_session = TrackingSessionHandler(self)
+    self._user = tracking_session.user
+    self._handle_unauthenticated_setting()
+```
+
 ### Multi-line statements
 
 ### Class layout
