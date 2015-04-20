@@ -17,6 +17,7 @@ This style guide contains up to date best practices when it comes to coding pyth
 * Control flow statements
 * Functions
 * Classes
+* Patterns
 
 ## Layout
 
