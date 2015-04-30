@@ -216,6 +216,27 @@ def split_spacey_method(self):
 
 ### Multi-line statements
 
+Implicit line continuation is preferred over the use of backslashes. Further, if the statement can be/is scoped (has inner blocks surrounded by ```[, {, (```), it is preferred to put the elements of this scope on separate lines and indent them. Further, whenever possible, elements within a scope that have been broken out onto new lines should have a trailing comma (after the last element) to minimize the diff if a new element is added or removed to or from the end.
+
+```python
+# BAD
+so_many_tuples = ((1, 2, 3, 4, 5, 6), (7, 8, 9, 10, 11), (12, 13, 14, 15), (16, 17, 18), (19, 20), (21))
+
+# PEP8 COMPLIANT, BUT NOT GREAT
+so_many_typles = ((1, 2, 3, 4, 5, 6), (7, 8, 9, 10, 11),
+                  (12, 13, 14, 15), (16, 17, 18), (19, 20), (21))
+
+# BEST
+so_many_tuples = (
+    (1, 2, 3, 4, 5, 6),
+    (7, 8, 9, 10, 11),
+    (12, 13, 14, 15),
+    (16, 17, 18),
+    (19, 20),
+    (21), # trailing comma reduces diff if a new element is added
+)
+```
+
 ### Class layout
 
 ### Function layout
