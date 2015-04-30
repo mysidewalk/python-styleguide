@@ -182,39 +182,36 @@ Contrary to PEP8 which states, `Use blank lines in functions, sparingly, to indi
 
 ```python
 # BAD
-def _not_authenticated(self):
-    self._authenticator = None
-    tracking_session = TrackingSessionHandler(self)
-    self._user = tracking_session.user
+def spacey_method(self):
+    self.kevin = Kevin()
+    self.white_spacey = WhiteSpacey()
 
-    if api_settings.UNAUTHENTICATED_TOKEN:
-        self._auth = api_settings.UNAUTHENTICATED_TOKEN()
+    if some_conditional():
+        self.role = 'Frank'
     else:
-        self._auth = None
+        self.role = 'Keyser'
         
  # BETTER
- def _not_authenticated(self):
-    self._authenticator = None
-    tracking_session = TrackingSessionHandler(self)
-    self._user = tracking_session.user
-    # Handle based on api_settings
-    if api_settings.UNAUTHENTICATED_TOKEN:
-        self._auth = api_settings.UNAUTHENTICATED_TOKEN()
+def less_spacey_method(self):
+    self.kevin = Kevin()
+    self.white_spacey = WhiteSpacey()
+    # Handle based on some conditional
+    if some_conditional():
+        self.role = 'Frank'
     else:
-        self._auth = None
+        self.role = 'Keyser'
 
 # BEST
-def _handle_unauthenticated_setting(self):
-    if api_settings.UNAUTHENTICATED_TOKEN:
-        self._auth = api_settings.UNAUTHENTICATED_TOKEN()
+def handle_some_condition(self):
+    if some_conditional():
+        self.role = 'Frank'
     else:
-        self._auth = None
+        self.role = 'Keyser'
 
-def _not_authenticated(self):
-    self._authenticator = None
-    tracking_session = TrackingSessionHandler(self)
-    self._user = tracking_session.user
-    self._handle_unauthenticated_setting()
+def split_spacey_method(self):
+    self.kevin = Kevin()
+    self.white_spacey = WhiteSpacey()
+    self.handle_some_condition()
 ```
 
 ### Multi-line statements
