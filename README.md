@@ -254,19 +254,35 @@ List comprehensions, and, more generally, generator expressions, can benefit a g
 - The "in expression" (defining the source iterable)
 - The "if expression" (optional, defines a predicate for inclusion/exclusion for the elements)
 
-For all but the simplest generator expressions, it is helpful to split the constituent elements across lines.
+For all but the simplest generator expressions, it is helpful to split the constituent elements across lines. Further, putting a generator expression on multiple lines allows the author to add helpful comments before elements of the expression.
 
 ```python
 # HARD TO READ AND OVER LINE LENGTH
 my_list = [(x % 3 == 0 and x % 5 == 0 and 'FizzBuzz') or (x % 5 == 0 and 'Buzz') or (x % 3 == 0 and 'Fizz') or x for x in range(100)]
 
-# BETTER
+# BEST
 my_list = [
     (x % 3 == 0 and x % 5 == 0 and 'FizzBuzz')
         or (x % 5 == 0 and 'Buzz')
         or (x % 3 == 0 and 'Fizz')
         or x
     for x
+    in range(100)
+]
+
+# BEST
+my_list = [
+    # If divisible by 3 and 5, fizzbuzz
+    (x % 3 == 0 and x % 5 == 0 and 'FizzBuzz')
+        # If divisible by 5, buzz
+        or (x % 5 == 0 and 'Buzz')
+        # If divisible by 3, fizz
+        or (x % 3 == 0 and 'Fizz')
+        # Else the number
+        or x
+    # Take each integer element
+    for x
+    # In range 0-99
     in range(100)
 ]
 ```
