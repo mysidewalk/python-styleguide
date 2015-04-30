@@ -235,6 +235,40 @@ so_many_tuples = (
     (19, 20),
     (21), # trailing comma reduces diff if a new element is added
 )
+
+# BAD
+some_string = 'concatenate' + 'a' + ' ' + 'lot' + ' ' + 'of' + 'strings' + 'together' +\
+              ' ' + 'for' + ' ' + 'fun.'
+
+# BETTER
+some_string = (
+    'concatenate' + 'a' + ' ' + 'lot' + ' ' + 'of' +
+    'strings' + 'together' +' ' + 'for' + ' ' + 'fun.'
+)
+```
+
+List comprehensions, and, more generally, generator expressions, can benefit a great deal in readability and maintainability from being split across multiple lines. A generator expression generally has 4 parts:
+
+- The "transformation" (any logic applied to create each output element)
+- The "for expression" (defining the elements that will come from the iterable)
+- The "in expression" (defining the source iterable)
+- The "if expression" (optional, defines a predicate for inclusion/exclusion for the elements)
+
+For all but the simplest generator expressions, it is helpful to split the constituent elements across lines.
+
+```python
+# HARD TO READ AND OVER LINE LENGTH
+my_list = [(x % 3 == 0 and x % 5 == 0 and 'FizzBuzz') or (x % 5 == 0 and 'Buzz') or (x % 3 == 0 and 'Fizz') or x for x in range(100)]
+
+# BETTER
+my_list = [
+    (x % 3 == 0 and x % 5 == 0 and 'FizzBuzz')
+        or (x % 5 == 0 and 'Buzz')
+        or (x % 3 == 0 and 'Fizz')
+        or x
+    for x
+    in range(100)
+]
 ```
 
 ### Class layout
