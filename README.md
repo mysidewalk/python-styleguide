@@ -260,7 +260,7 @@ For all but the simplest generator expressions, it is helpful to split the const
 # HARD TO READ AND OVER LINE LENGTH
 my_list = [(x % 3 == 0 and x % 5 == 0 and 'FizzBuzz') or (x % 5 == 0 and 'Buzz') or (x % 3 == 0 and 'Fizz') or x for x in range(100)]
 
-# BEST
+# BETTER
 my_list = [
     (x % 3 == 0 and x % 5 == 0 and 'FizzBuzz')
         or (x % 5 == 0 and 'Buzz')
