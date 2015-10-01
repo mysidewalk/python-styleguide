@@ -287,6 +287,32 @@ my_list = [
 ]
 ```
 
+### Import Order
+
+Imports should be ordered into four groups:
+python standard library imports
+3rd party imports
+sidewalk-libs imports
+imports from within the same repo
+
+Each group should list `import' statements first (sorted alphabetically), followed by 'import-from' statements (also sorted alphabetically).
+
+for example:
+```
+import logging
+from datetime import datetime, timedelta
+from urllib import urlencode
+
+import requests
+import simplejson as json
+from django.conf import settings
+from rest_framework import status
+
+from libs.iterable_utilities import first
+
+from routes import AUTHWALK_OAUTH_API_V1, AUTHWALK_USER_API_V1
+```
+
 ### Class layout
 
 ### Function layout
