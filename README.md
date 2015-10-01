@@ -290,10 +290,10 @@ my_list = [
 ### Import Order
 
 Imports should be ordered into four groups:
-python standard library imports
-3rd party imports
-sidewalk-libs imports
-imports from within the same repo
+* python standard library imports
+* 3rd party imports
+* sidewalk-libs imports
+* imports from within the same repo
 
 Each group should list `import' statements first (sorted alphabetically), followed by 'import-from' statements (also sorted alphabetically).
 
