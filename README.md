@@ -323,6 +323,15 @@ from routes import AUTHWALK_OAUTH_API_V1, AUTHWALK_USER_API_V1
 
 ### Docstrings
 
+```
+""" This is a single-line docstring
+"""
+
+""" This is a multi-line docstring
+    This is the second line
+"""
+```
+
 ## Naming
 
 In addition to PEP8 naming conventions, names should clearly describe the entity in question (classes and references) or the action being performed (function and method names). Precision and readability are be favored over brevity. Names should not include abbreviations that make them less understandable (e.g. addr_cnty_name), although abbreviations in common use are acceptable (e.g. weight_in_kg). If an entity fits a named pattern or has a specific purpose, that should be conveyed in the name (e.g. GoogleMap < GoogleMapAdapter and hadoop < hadoop_reader)
