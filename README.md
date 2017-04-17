@@ -287,6 +287,34 @@ my_list = [
 ]
 ```
 
+For function and class signatures over the line length, prefer to split arguments with newlines and indentations. The closing `):` should be aligned with the opening `def`/`class` and on a line alone. This helps to avoid going over the line length, while still maintaining reasonable visability of the new scope.
+
+```python
+# BAD
+def has_many_long_arguments(some_argument, another_argument, and_one_more_positional_one, keyword_argument='Long default value'):
+    pass
+   
+class MyVeryComplicatedSubclass(SuperCoolFeatureMixin, KindaCoolFeatureMixin, NotReallyCoolButNeededMixin, BehemothBaseclass):
+    pass
+
+# BEST
+def has_many_long_arguments(
+    some_argument,
+    another_argument,
+    and_one_more_positional_one,
+    keyword_argument='Long default value',
+):
+    pass
+   
+class MyVeryComplicatedSubclass(
+    SuperCoolFeatureMixin,
+    KindaCoolFeatureMixin,
+    NotReallyCoolButNeededMixin,
+    BehemothBaseclass,
+):
+    pass
+```
+
 ### Import Order
 
 Imports should be ordered into four groups:
