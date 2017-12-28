@@ -318,18 +318,26 @@ class MyVeryComplicatedSubclass(
 
 ### String Literals
 
-String literals should prefer single quotes. Double quotes may be used for strings containing single quotes, where escaping would introduce more complexity.
-
-Note: this does not apply to docstrings, see [Docstrings](#docstrings).
+String literals should prefer single quotes in most cases. Double quotes may be used for:
+- strings containing single quotes (escaping would introduce complexity)
+- multiline and [doc](#docstrings) strings
 
 ```python
 # BAD
 simple = "Just a simple string"
 contraction = 'I can\'t believe python\'s syntax is so cruel'
+multi = '''
+    I like rocking
+    the boat
+'''
 
 # BEST
 simple = 'Just a simple string'
 contraction = "I can't believe python's syntax is so cool"
+multi = """
+    I like a
+    stable boat
+"""
 ```
 
 ### Import Order
