@@ -10,6 +10,7 @@ This style guide contains up to date best practices when it comes to coding pyth
   * Indentation
   * Blank lines
   * Multi-line statements
+  * String Literals
 * Documentation
   * Comments
   * Docstrings
@@ -313,6 +314,30 @@ class MyVeryComplicatedSubclass(
     BehemothBaseclass,
 ):
     pass
+```
+
+### String Literals
+
+String literals should prefer single quotes in most cases. Double quotes may be used for:
+- strings containing single quotes (escaping would introduce complexity)
+- multiline and [doc](#docstrings) strings
+
+```python
+# BAD
+simple = "Just a simple string"
+contraction = 'I can\'t believe python\'s syntax is so cruel'
+multi = '''
+    I like rocking
+    the boat
+'''
+
+# BEST
+simple = 'Just a simple string'
+contraction = "I can't believe python's syntax is so cool"
+multi = """
+    I like a
+    stable boat
+"""
 ```
 
 ### Import Order
